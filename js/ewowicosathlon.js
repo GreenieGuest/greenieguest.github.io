@@ -7,7 +7,7 @@ const base_points = [100, 70, 50, 40, 30, 25, 20, 15, 12, 10, 8, 6, 4, 3, 2, 1];
 const names = [];
 const colors = [];
 
-const roundScores = Array.from({ length: 14 }, () => []);
+const roundScores = Array.from({ length: 16 }, () => []);
 
 //Fetch each contestant data from predetermined json file :D
 fetch('ewowicosathlon.json')
