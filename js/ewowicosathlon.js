@@ -9,6 +9,13 @@ const colors = [];
 
 const roundScores = Array.from({ length: 16 }, () => []);
 
+let athletes = [];
+let bootOrder = [];
+let challenges = [];
+let round = 1;
+let castSize = 16;
+let numPlayers = 16;
+
 //Fetch each contestant data from predetermined json file :D
 fetch('ewowicosathlon.json')
 .then(response => response.json())
@@ -21,11 +28,11 @@ fetch('ewowicosathlon.json')
 			roundScores[index].push(entry[`r${i + 1}`]);
 		}
 	});
+	
+	athletes = names.map((item, index) => new Player(item, 0, 0, 0, roundScores[index]));
+	castSize = athletes.length;
+	numPlayers = athletes.length;
 });
-
-let bootOrder = [];
-let challenges = [];
-let round = 1;
 
 class Player {
     constructor(name, points, finalePoints, lastPlacement, challengeData) {
@@ -235,10 +242,5 @@ function nextRound() {
 		displayText(`${winner.name} is the winner of ${season_name}.`);
 	}
 }
-
-let athletes = names.map((item, index) => new Player(item, 0, 0, 0, roundScores[index]));
-
-let castSize = athletes.length;
-let numPlayers = athletes.length;
 
 document.getElementById("proceed").addEventListener("click", nextRound);
