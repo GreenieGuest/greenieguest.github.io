@@ -134,10 +134,10 @@ function suffix(n) {
 
 function challenge(athletes) {
     let playerPoints = Array(athletes.length).fill(0);
-    displayText(`Challenge: ${challengeName}`);
+    displayText(`Round ${round} Prompt`);
 
     for (let player = 0; player < athletes.length; player++) {
-        playerPoints[player] = challenge(challengeName, athletes[player].challengeData[round - 1]);
+        playerPoints[player] = athletes[player].challengeData[round - 1];
     }
 
     let placements = [...playerPoints];
@@ -212,7 +212,7 @@ function nextRound() {
 		// Ultimate Showdown
 
 		for (let x = 0; x < castSize - 2; x++) {
-			if (athletes[0].roundScores[x] < athletes[1].roundScores[x]) {
+			if (athletes[0].challengeData[x] < athletes[1].challengeData[x]) {
 				athletes[0].finalePoints += 1;
 				displayText(`Round ${x + 1}: ${athletes[0].name} wins. | ${athletes[0].name}: ${athletes[0].finalePoints}, ${athletes[1].name}: ${athletes[1].finalePoints}\n`);
 			} else {
