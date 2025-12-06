@@ -32,7 +32,7 @@ function load() {
 	//Reset all variables
 	names.splice(0, names.length);
 	colors.splice(0, colors.length);
-	for (let i = 0; i < 15; i++) {
+	for (let i = 0; i < 14; i++) {
 		roundScores[i].splice(0, roundScores[i].length);
 	}
 	athletes = [];
@@ -48,7 +48,7 @@ function load() {
 			names.push(entry.contestant);		 
 			colors.push(entry.color);
 			
-			for (let i = 0; i < 15; i++) {
+			for (let i = 0; i < 14; i++) {
 				roundScores[index].push(entry[`r${i + 1}`]);
 			}
 		});
