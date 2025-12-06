@@ -53,7 +53,7 @@ function load() {
 			}
 		});
 
-		const samplecast = sample(names, castSize);
+		const samplecast = sample(names, castSize - 1);
 		
 		athletes = samplecast.map((item, index) => new Player(item, 0, index, roundScores[names.indexOf(item)]));
 		stillInTheRunning(athletes, false);
